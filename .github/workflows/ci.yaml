@@ -38,7 +38,7 @@ env:
 jobs:
   controller-test:
     runs-on: ubuntu-latest
-    if: ${{ github.repository_owner == 'cryostatio' }}
+   # if: ${{ github.repository_owner == 'cryostatio' }}
     steps:
     - name: Fail if safe-to-test label NOT applied
       if: ${{ github.event_name == 'pull_request_target' && !contains(github.event.pull_request.labels.*.name, 'safe-to-test') }}
@@ -62,7 +62,7 @@ jobs:
       run: make test-envtest
   scorecard-test:
     runs-on: ubuntu-latest
-    if: ${{ github.repository_owner == 'cryostatio' }}
+    #if: ${{ github.repository_owner == 'cryostatio' }}
     steps:
     - name: Fail if safe-to-test label NOT applied
       if: ${{ github.event_name == 'pull_request_target' && !contains(github.event.pull_request.labels.*.name, 'safe-to-test') }}
@@ -156,7 +156,7 @@ jobs:
       run: kind delete cluster -n ci-${{ github.run_id }}
   build-operator:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' && github.repository_owner == 'cryostatio' }}
+   # if: ${{ github.event_name == 'push' && github.repository_owner == 'cryostatio' }}
     steps:
     - uses: actions/checkout@v2
     - name: Install qemu
