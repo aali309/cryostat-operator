@@ -25,7 +25,7 @@ jobs:
     steps:
     - uses: r26d/ghcr-delete-image-action@v1.3.0
       with:
-        owner: ${{ github.repository_owner }}
+        #owner: ${{ github.repository_owner }}
         name: ${{ matrix.image }}
         token: ${{ secrets.GITHUB_TOKEN }}
         ignore-missing-package: true
